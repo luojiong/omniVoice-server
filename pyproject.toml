@@ -1,0 +1,34 @@
+[project]
+name = "omnivoice-server"
+version = "1.0.0"
+description = "OmniVoice TTS Server - High-quality voice cloning and synthesis API"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.136.1",
+    "uvicorn[standard]>=0.46.0",
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    "omnivoice>=0.1.4",
+    "python-multipart>=0.0.9",
+    "soundfile>=0.12.1",
+    "pydub>=0.25.1",
+    "python-dotenv>=1.0.0",
+    "aiohttp>=3.9.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
